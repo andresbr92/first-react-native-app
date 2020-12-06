@@ -1,31 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
-import React, {useState} from 'react';
-import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
-import SvgComponent from './src/svg/fabs'
-
-
-
+import { StatusBar } from "expo-status-bar";
+import React, { useState } from "react";
+import { StyleSheet, Text, View, Button, TextInput, Vibration } from "react-native";
+import SvgComponent from "./src/svg/fabs";
+import Network from './src/network/network'
+import { Pattern } from "react-native-svg";
 
 export default function App() {
-  
 
-  const [password, setPassword] = useState('')
-  const [name, setName] = useState('')
-
+ 
 
   return (
     <>
-    <View style = {styles.container}>
-    <View>
-        <SvgComponent />
+      <View style={styles.container}>
+        <View>
+          <SvgComponent />
+        </View>
+
+        <Text>Crear hotspot</Text>
+        <Network />
+        
+        
+        <StatusBar style="auto" />
       </View>
-      
-      <Text>Crear hotspot </Text>
-      <TextInput placeholder="Nombre de la red" value={name} /> 
-      <TextInput placeholder="Password" value={password} /> 
-      <Button title = "Change text" />
-      <StatusBar style="auto" />
-    </View>
     </>
   );
 }
@@ -33,7 +29,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'rgb(236, 182, 84)',
-    alignItems: 'center'
+    backgroundColor: "rgb(236, 182, 84)",
+    alignItems: "center",
   },
 });
